@@ -4,8 +4,49 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="StyleSheet1.css">
 </head>
-<body>
-    <p>Hello World</p>
+<body onload="onLoad()">
+    <select id="PlayerList">
+    </select>
+
+    <input id="Text1" type="text" />
+    <input id="submitButton" type="button" value="Submit Score" />
+    <hr />
+    <table id="scoreTable" style="width:100%;">
+        <tr>
+            <td>Player</td>
+            <td>Week 1 Score</td>
+            <td>Week 2 Score</td>
+        </tr>
+    </table>
+
+    <script >
+        var playerList = [ "Alex", "Nate", "Jony", "Clif"];
+
+        function onLoad() {
+            populateTable();
+            populatePlayerList();
+        }
+
+        function populateTable() {
+            var table = document.getElementById("scoreTable");
+            var text = "";
+
+            for (p = 0; p < playerList.length; p++) {
+                text += "<tr> <td>" + playerList[p] + "</td > <td>&nbsp;</td> <td>&nbsp;</td> </tr >";
+            }
+            table.innerHTML += text;
+        }
+
+        function populatePlayerList() {
+            var list = document.getElementById("PlayerList");
+            var text = "";
+            for (p = 0; p < playerList.length; p++) {
+                text += "<option>" + playerList[p] + "</option>";
+            }
+            list.innerHTML = text;
+        }
+    </script>
 </body>
 </html>
